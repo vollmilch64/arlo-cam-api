@@ -5,3 +5,4 @@ dist/
 *.avi
 *.db
 .python-version
+.DS_Store
