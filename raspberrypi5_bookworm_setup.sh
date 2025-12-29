@@ -10,6 +10,10 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+read -r -p "Enter access point SSID : " SSID
+read -r -p "Enter access point WPA_PSK : " WPA_PSK
+echo "SSID : $SSID, WPA_PSK : $WPA_PSK"
+
 # setup wifi access point
 sudo nmcli con add type wifi ifname $WLAN_IFACE con-name nm-ap ssid $SSID
 sudo nmcli con modify nm-ap 802-11-wireless.mode ap
