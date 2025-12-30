@@ -80,10 +80,29 @@ The arlo-cam-api server is responsible to trigger the cameras to send an rtsp st
 cd arlo-cam-api
 sudo ./02_setup_arlo_cam_api.sh
 ```
-To check whether the server run, one can check for the stream with 'ffprobe'. This tool is part of the 'ffmpeg' package.
+To check whether the server runs, one can check for the stream with 'ffprobe'. This tool is part of the 'ffmpeg' package.
 
 ```
 sudo apt install ffmpeg
 ffprobe rtsp://172.14.0.175/live
 ffprobe rtsp://172.14.0.206/live
+```
+
+### Setup mediamtx proxy
+
+We use mediamtx to provide the camera streams on the local network. The bash script 03_setup_mediamtx does this job.
+
+```
+sudo ./03_setup_mediamtx.sh
+```
+
+To check whether the mediamtx server runs correctly, open a browser anywhere in your local network with the following url :
+
+```
+http://cameraserver1:8889/cam1/
+```
+or
+
+```
+http://cameraserver1:8889/cam2/
 ```
