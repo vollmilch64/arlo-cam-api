@@ -8,12 +8,12 @@ I did the setup work on my MacBook Pro M1 running Tahoe 26.1 and I used a 128GB 
 
 ### Prepare SD card
 
-1. download 2025-11-24-raspios-bookworm-arm64-lite.img.xz from here : https://www.raspberrypi.com/software/operating-systems/
+1. download [Raspberry Pi OS Lite (Bookworm)](https://downloads.raspberrypi.com/raspios_oldstable_lite_arm64/images/raspios_oldstable_lite_arm64-2025-11-24/2025-11-24-raspios-bookworm-arm64-lite.img.xz)
 1. download Raspberry Pi Imager from here : https://www.raspberrypi.com/software/ and install it on your Mac
 1. start Imager
 1. select 'Raspberry Pi 5'
 1. select 'Use custom' and select the downloaded image '2025-11-24-raspios-bookworm-arm64-lite.img.xz'
-1. select your SD card as storage device
+1. select 'Apple SDXC Reader Media' as storage device
 1. write
 
 ### Boot raspberry Pi
@@ -27,7 +27,7 @@ Connect a display and keyboard to your Raspberry Pi
 1. sudo raspi-config
 1. 1 System options : S4 Hostname : cameraserver1
 1. 3 Interface options : I1 SSH yes
-1. reboot
+1. Finish -> reboot
 
 ### Configure Raspberry Pi
 
