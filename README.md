@@ -22,8 +22,8 @@ Connect a display and keyboard to your Raspberry Pi
 
 1. plug the SD card into the Raspberry Pi and switch it on
 1. select keyboard layout, e.g. German (Switzerland)
-1. username and password
-1. loging with your username and password
+1. username=secureadmin and password
+1. loging with secureadmin and password
 1. sudo raspi-config
 1. 1 System options : S4 Hostname : cameraserver1
 1. 3 Interface options : I1 SSH yes
@@ -33,7 +33,7 @@ Connect a display and keyboard to your Raspberry Pi
 
 The Raspberry Pi is now accessible via ssh over the LAN. 
 
-1. connect via ssh : ssh username@cameraserver1
+1. connect via ssh : ssh secureadmin@cameraserver1
 1. sudo raspi-config
 1. 5 Localisation Options : L2 Timezone : Europe Zurich
 1. 5 Localisation Options : L4 WLAN Country : CH Switzerland
@@ -51,6 +51,7 @@ To be able to checkout this repository on the Raspberry Pi, we need to install g
 The Raspberry Pi needs to act as a wifi access point in an own networking range, e.g. 172.14.0.x/24. The bash script 01_setup_wifi_access_point.sh does this job, so run it as root
 
 ```
+cd arlo-cam-api
 sudo ./01_setup_wifi_access_point.sh
 ```
 The script asks for an SSID and a WPA_PSK, see [capture real base station WPA-PSK](https://github.com/brianschrameck/arlo-cam-api?tab=readme-ov-file#capture-real-base-station-wpa-psk) for a detailed description, how to get it.
@@ -70,3 +71,19 @@ nnnnnnnnnn fc:9c:98:xx:xx:xx 172.14.0.206 VMC4060-DXXXX *
 
 If you get nothing, try to reboot cameras by remove/readd battery and wait some minutes.
 
+### Setup arlo-cam-api
+
+The arlo-cam-api server is responsible to trigger the cameras to send an rtsp stream to the Raspberry Pi. The bash script
+02_setup_arlo_cam_api.sh does set up the server.
+
+```
+cd arlo-cam-api
+sudo ./02_setup_arlo_cam_api.sh
+```
+To check whether the server run, one can check for the stream with 'ffprobe'. This tool is part of the 'ffmpeg' package.
+
+```
+sudo apt install ffmpeg
+ffprobe rtsp://172.14.0.175/live
+ffprobe rtsp://172.14.0.206/live
+```
