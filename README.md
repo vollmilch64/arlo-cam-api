@@ -27,6 +27,8 @@ Connect a display and keyboard to your Raspberry Pi
 1. sudo raspi-config
 1. 1 System options : S4 Hostname : cameraserver1
 1. 3 Interface options : I1 SSH yes
+1. 5 Localisation Options : L2 Timezone : Europe Zurich
+1. 5 Localisation Options : L4 WLAN Country : CH Switzerland
 1. Finish -> reboot
 
 ### Configure Raspberry Pi
@@ -34,9 +36,6 @@ Connect a display and keyboard to your Raspberry Pi
 The Raspberry Pi is now accessible via ssh over the LAN. 
 
 1. connect via ssh : ssh secureadmin@cameraserver1
-1. sudo raspi-config
-1. 5 Localisation Options : L2 Timezone : Europe Zurich
-1. 5 Localisation Options : L4 WLAN Country : CH Switzerland
 
 ### Checkout arlo-cam-api repository
 
