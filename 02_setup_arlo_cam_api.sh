@@ -11,6 +11,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip3 install -r requirements.txt
 sudo cp -r ../arlo-cam-api/ /opt/arlo-cam-api
+chown -R secureadmin:secureadmin /opt/arlo-cam-api
 
 cat << EOF > /etc/systemd/system/cameraserver.service
 [Unit]
@@ -20,8 +21,8 @@ After=network.target
 [Service]
 Type=simple
 User=secureadmin
-WorkingDirectory=/opt/arlo_cam_api
-ExecStart=/opt/arlo_cam_api/.venv/bin/python server.py
+WorkingDirectory=/opt/arlo-cam-api
+ExecStart=/opt/arlo-cam-api/.venv/bin/python server.py
 Restart=always
 RestartSec=5
 Environment=PYTHONUNBUFFERED=1
