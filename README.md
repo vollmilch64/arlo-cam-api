@@ -86,6 +86,11 @@ sudo apt install ffmpeg
 ffprobe rtsp://172.14.0.175/live
 ffprobe rtsp://172.14.0.206/live
 ```
+The log of the cameraserver can be viewed with
+
+```
+journalctl -u cameraserver.service -f
+```
 
 ### Setup mediamtx proxy
 
