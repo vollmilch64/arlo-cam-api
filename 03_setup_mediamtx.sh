@@ -18,6 +18,7 @@ cat << EOF > /opt/mediamtx/mediamtx.yml
 ################################
 rtsp: yes
 rtspAddress: :8554
+rtspTransports: [tcp]
 
 webrtc: yes
 webrtcAddress: :8889
@@ -31,6 +32,16 @@ paths:
 
   cam2:
     source: rtsp://172.14.0.206/live
+    sourceProtocol: tcp
+    sourceOnDemand: no
+
+  cam3:
+    source: rtsp://172.14.0.228/live
+    sourceProtocol: tcp
+    sourceOnDemand: no
+
+  cam4:
+    source: rtsp://172.14.0.128/live
     sourceProtocol: tcp
     sourceOnDemand: no
 EOF
